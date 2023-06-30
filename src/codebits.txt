@@ -1,0 +1,22 @@
+  // fetches all characters on initial mount and when currentPage changes
+  useEffect(() => {
+    fetchData();
+  }, [currentPage]);
+
+  // set function that handles fetching the next page (increments the currentPage state variable and triggers data fetching)
+  const fetchNextPage = async () => {
+    setCurrentPage((prevPage) => prevPage + 1);
+  };
+
+  return (
+    <div data-testid="app">
+      <Navigation />
+
+      <h1>characters will be here</h1>
+      <CharacterCard />
+      <button onClick={fetchNextPage}>Next Page</button>
+    </div>
+  );
+}
+
+const [currentPage, setCurrentPage] = useState(1); // Pagination, this will allow for moving to next page of characters and starts from page 1 
