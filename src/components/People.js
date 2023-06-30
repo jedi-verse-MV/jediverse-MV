@@ -8,7 +8,7 @@ function People({ data }) {
       <Grid columns={3}>
         {data.map((people, i) => {
           return (
-            <Grid.Column key={i} divided>
+            <Grid.Column key={i} divided="true">
               <Card>
                 <Card.Content>
                   <Card.Header>{people.name}</Card.Header>
