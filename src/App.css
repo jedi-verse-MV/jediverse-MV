@@ -1,9 +1,9 @@
 .App {
   text-align: center;
-  background-image: url("https://wallpaperset.com/w/full/2/6/d/86862.jpg");
+  background-image: url("/images/1318046-star-wars-episode-3-wallpapers-1920x1080-mac.jpg");
   background-position: cover;
   background-repeat: no-repeat;
-  background-attachment: fixed;
+  background-attachment:fixed;
   background-size: cover;
 }
 
@@ -13,19 +13,30 @@
 }
 
 h1 {
-  color: white
+  color: black;
+  font-size:xx-large;
+  font-weight: bolder;
   
 }
 
 p { 
-  color: black;
- 
+  color: #cc9f14; 
+  font-size: medium;
+  font-weight: bold;
 }
 
-strong {
-  color:black;
- 
+label {
+  color:#bcbcbc;
+  font-style: italic;
+  font-size: medium;
+  font-weight: bold;
 }
+
+header {
+  color:#cc0000;
+  
+}
+
 
 @media (prefers-reduced-motion: no-preference) {
   .App-logo {

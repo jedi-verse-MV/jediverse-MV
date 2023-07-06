@@ -1,6 +1,7 @@
 import React from "react";
 import { Card, Grid } from "semantic-ui-react";
 
+
 function Planets({ data }) {
   return (
     <>
@@ -11,14 +12,16 @@ function Planets({ data }) {
             <Grid.Column key={i}>
               <Card>
                 <Card.Content>
-                  <Card.Header>{planets.name}</Card.Header>
+                  <Card.Header><header>{planets.name}</header></Card.Header>
                   <Card.Description>
-                    <strong>Climate</strong>
+                    <label>Climate</label>
                     <p>{planets.climate}</p>
-                    <strong>Diameter</strong>
+                    <label>Diameter</label>
                     <p>{planets.diameter}</p>
-                    <strong>Population</strong>
+                    <label>Population</label>
                     <p>{planets.population}</p>
+                    <label>Gravity</label>
+                    <p>{planets.gravity}</p>
                   </Card.Description>
                 </Card.Content>
               </Card>
