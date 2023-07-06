@@ -8,7 +8,7 @@ function Navbar() {
       <Container fluid>
         <Menu inverted color="black">
           <Link to="/">
-            <Menu.Item name="star-wars-api" />
+            <Menu.Item name="JediVerse Home" />
           </Link>
           <Link to="/people">
             <Menu.Item name="people" />
