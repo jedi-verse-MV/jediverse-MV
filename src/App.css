@@ -1,11 +1,30 @@
 .App {
   text-align: center;
-  background-image: linear-gradient(#ffffff, #0f00ff, #c0c0c0,#0f00ff, 	#ffffff);
+  background-image: url("https://wallpaperset.com/w/full/2/6/d/86862.jpg");
+  background-position: cover;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-size: cover;
 }
 
 .App-logo {
   height: 40vmin;
   pointer-events: none;
+}
+
+h1 {
+  color: white
+  
+}
+
+p { 
+  color: black;
+ 
+}
+
+strong {
+  color:black;
+ 
 }
 
 @media (prefers-reduced-motion: no-preference) {

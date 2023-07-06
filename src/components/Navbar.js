@@ -7,15 +7,15 @@ function Navbar() {
     <div>
       <Container fluid>
         <Menu inverted color="black">
-        <Link to="/">
-        <Menu.Item name="star-wars-api" />
-        </Link>
-         <Link to="/people">
-         <Menu.Item name="people" />
-         </Link>
-         <Link to="/planets">
-         <Menu.Item name="planets" />
-         </Link>
+          <Link to="/">
+            <Menu.Item name="star-wars-api" />
+          </Link>
+          <Link to="/people">
+            <Menu.Item name="people" />
+          </Link>
+          <Link to="/planets">
+            <Menu.Item name="planets" />
+          </Link>
         </Menu>
       </Container>
     </div>

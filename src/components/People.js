@@ -1,10 +1,12 @@
 import React from "react";
 import { Card, Grid } from "semantic-ui-react";
 
+
 function People({ data }) {
   return (
     <>
       <h1 align="center"> People of Star Wars</h1>
+      <div>
       <Grid columns={3}>
         {data.map((people, i) => {
           return (
@@ -19,7 +21,7 @@ function People({ data }) {
                     <strong>Gender</strong>
                     <p>{people.gender}</p>
                     <strong>Homeworld</strong>
-                    <p>{people.homeworld}</p>
+                    <p><a href={people.homeworld}>{people.homeworld}</a></p>
                     <strong>Hair Color</strong>
                     <p>{people.hair_color}</p>
                   </Card.Description>
@@ -29,6 +31,7 @@ function People({ data }) {
           );
         })}
       </Grid>
+      </div>
     </>
   );
 }
