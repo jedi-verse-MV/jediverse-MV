@@ -1,0 +1,119 @@
+/* eslint-disable jsx-a11y/anchor-has-content */
+/* eslint-disable jsx-a11y/iframe-has-title */
+import React from "react";
+import { Card, Grid } from "semantic-ui-react";
+
+function People({ data }) {
+  return (
+    <>
+      <h1 align="center"> People of Star Wars</h1>
+      <div>
+        <Grid columns={3}>
+          {data.map((people, i) => {
+            return (
+              <Grid.Column key={i} divided="true">
+                <Card>
+                  <Card.Content>
+                    <Card.Header>{people.name}</Card.Header>
+                    <Card.Description>
+                      <label>Height</label>
+                      <p>{people.height}</p>
+                      <label>Birth Year</label>
+                      <p>{people.birth_year}</p>
+                      <label>Gender</label>
+                      <p>{people.gender}</p>
+                      <label>Homeworld</label>{" "}
+                      <p>
+                        <a href={people.homeworld}>{people.homeworld}</a>
+                      </p>
+                      <label>Hair Color</label>
+                      <p>{people.hair_color}</p>
+                    </Card.Description>
+                  </Card.Content>
+                </Card>
+              </Grid.Column>
+            );
+          })}
+        </Grid>
+      </div>
+    </>
+  );
+}
+
+export default People;
+
+
+
+import React, { useState } from "react";
+import { Card, Grid, Button } from "semantic-ui-react";
+
+function People({ data }) {
+  const itemsPerPage = 10;
+  const [currentPage, setCurrentPage] = useState(1);
+
+  const handleNextPage = () => {
+    setCurrentPage((prevPage) => prevPage + 1);
+  };
+
+  const handlePreviousPage = () => {
+    setCurrentPage((prevPage) => prevPage - 1);
+  };
+
+  // Calculate the index range of the items to display
+  const startIndex = (currentPage - 1) * itemsPerPage;
+  const endIndex = startIndex + itemsPerPage;
+  const displayedItems = data.slice(startIndex, endIndex);
+
+  return (
+    <>
+      <h1 align="center">People of Star Wars</h1>
+      <div>
+        <Grid columns={3}>
+          {displayedItems.map((person, index) => (
+            <Grid.Column key={index}>
+              <Card>
+                <Card.Content>
+                  <Card.Header>{person.name}</Card.Header>
+                  <Card.Description>
+                    <p>
+                      <strong>Height:</strong> {person.height}
+                    </p>
+                    <p>
+                      <strong>Birth Year:</strong> {person.birth_year}
+                    </p>
+                    <p>
+                      <strong>Gender:</strong> {person.gender}
+                    </p>
+                    <p>
+                      <strong>Homeworld:</strong>{" "}
+                      <a href={person.homeworld}>{person.homeworld}</a>
+                    </p>
+                    <p>
+                      <strong>Hair Color:</strong> {person.hair_color}
+                    </p>
+                  </Card.Description>
+                </Card.Content>
+              </Card>
+            </Grid.Column>
+          ))}
+        </Grid>
+
+        <div style={{ textAlign: "center", marginTop: "1rem" }}>
+          <Button
+            onClick={handlePreviousPage}
+            disabled={currentPage === 1}
+            content="Previous Page"
+          />
+          <Button
+            onClick={handleNextPage}
+            disabled={endIndex >= data.length}
+            content="Next Page"
+          />
+        </div>
+      </div>
+    </>
+  );
+}
+
+export default People;
+
