@@ -1,10 +1,10 @@
 .App {
-  text-align: center;
-  background-image: url("/images/1318046-star-wars-episode-3-wallpapers-1920x1080-mac.jpg");
+  text-align: center; 
+  background-image: url("https://images8.alphacoders.com/100/1005773.jpg");
   background-position: cover;
   background-repeat: no-repeat;
   background-attachment:fixed;
-  background-size: cover;
+  background-size: cover; 
 }
 
 .App-logo {
@@ -12,17 +12,31 @@
   pointer-events: none;
 }
 
+.poster {
+  height: 400px;
+
+}
+.message {
+  width: 1060px;
+  
+}
 h1 {
-  color: white;
+  color: black;
   font-size:xx-large;
   font-weight: bolder;
   
+}
+
+h2 {
+  color:#cc0000;
+
 }
 
 p { 
   color: #cc9f14; 
   font-size: medium;
   font-weight: bold;
+  font-display:inherit;
 }
 
 label {

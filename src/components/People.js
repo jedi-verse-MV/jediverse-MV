@@ -1,5 +1,7 @@
+/* eslint-disable jsx-a11y/anchor-has-content */
+/* eslint-disable jsx-a11y/iframe-has-title */
 import React from "react";
-import { Card, Grid } from "semantic-ui-react";
+import { Card, Grid} from "semantic-ui-react";
 
 function People({ data }) {
   return (
@@ -12,7 +14,9 @@ function People({ data }) {
               <Grid.Column key={i} divided="true">
                 <Card>
                   <Card.Content>
-                    <Card.Header><header>{people.name}</header></Card.Header>
+                    <Card.Header>
+                      <header>{people.name}</header>
+                    </Card.Header>
                     <Card.Description>
                       <label>Height</label>
                       <p>{people.height}</p>

@@ -5,12 +5,14 @@ import { Container, Dimmer, Loader } from "semantic-ui-react";
 import Home from "./components/Home";
 import People from "./components/People";
 import Planets from "./components/Planets";
+import Films from "./components/Films";
 import "./App.css";
 
 function App() {
   const [people, setPeople] = useState([]); // state for people
   const [planets, setPlanets] = useState([]); // state for planets
   const [loading, setLoading] = useState(true); // keeps track of when we are fetching data to the API, indicate some loaders so that we are fetching data
+  const [films, setFilms] = useState([]);
 
   // using useEffect and asynchronous operations to make fetch calls to the different api links(also formats to json)
   useEffect(() => {
@@ -27,8 +29,16 @@ function App() {
       setPlanets(data.results);
       setLoading(false);
     }
+
+    async function fetchFilms() {
+      const response = await fetch("https://swapi.dev/api/films/?format=json");
+      const data = await response.json();
+      setFilms(data.results);
+      setLoading(false);
+    }
     fetchPeople();
     fetchPlanets();
+    fetchFilms();
   }, []);
   console.log("data", people); // debugging making sure data for people populates
   console.log("planets", planets); // debugging making sure data for planets populates
@@ -50,6 +60,7 @@ function App() {
                 <Route exact path="/" element={<Home />}></Route>
                 <Route exact path="/people" element={<People data={people} />}></Route>
                 <Route exact path="/planets" element={<Planets data={planets} />}></Route>
+                <Route eaxct path="/films" element={<Films data={films} />}></Route>
               </Routes>
             )}
           </Container>

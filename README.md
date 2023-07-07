@@ -19,3 +19,11 @@ In order to view the JediVerse local, in the project directory, you can run:
 Runs the app in the development mode.
 Open [http://localhost:3000](http://localhost:3000) to view it in your browser. The page will reload when you make changes. You may also see any lint errors in the console.
 
+
+# Resource
+
+- [Star Wars ROM Audio](https://nmikstas.github.io/portfolio/swAudio/swAudio.html)
+- [Star Wars Cursor](https://www.cursors-4u.com/star_wars/?skip=38)
+- [GIFs](https://www.giphy.com)
+- [Semantics React UI](https://react.semantic-ui.com/)
+- [React Docs]()
