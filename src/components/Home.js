@@ -12,7 +12,7 @@ function Home() {
         "https://m.media-amazon.com/images/M/MV5BMDAzM2M0Y2UtZjRmZi00MzVlLTg4MjEtOTE3NzU5ZDVlMTU5XkEyXkFqcGdeQXVyNDUyOTg3Njg@._V1_.jpg",
     },
     {
-      image: "https://i.pinimg.com/originals/fe/d0/7f/fed07f6053218eb7610abe9de87d620f.jpg",
+      image: "https://m.media-amazon.com/images/I/51UPI34OUyL._AC_UF1000,1000_QL80_.jpg",
     },
     {
       image: "https://i.pinimg.com/originals/48/a9/7f/48a97f9f1f795c872bb0568b201631f2.jpg",
@@ -24,6 +24,15 @@ function Home() {
       image:
         "https://m.media-amazon.com/images/M/MV5BOWZlMjFiYzgtMTUzNC00Y2IzLTk1NTMtZmNhMTczNTk0ODk1XkEyXkFqcGdeQXVyNTAyODkwOQ@@._V1_.jpg",
     },
+    {
+      image: "https://i.ebayimg.com/images/g/pqgAAOSwP~BgZ1SV/s-l1600.jpg",
+    },
+    {
+      image: "https://www.limitedruns.com/media/cache/c8/c2/c8c27e59b3c6de8ae5598fca2d5ac20c.jpg",
+    },
+    {
+      image: "https://i.ebayimg.com/images/g/Mb8AAOSwVCVkEr~M/s-l1600.jpg",
+    },
   ];
 
   return (
@@ -32,9 +41,21 @@ function Home() {
       <div>
         <Message className="message">
           {/* // eslint-disable-next-line jsx-a11y/iframe-has-title */}
-          <iframe src="https://giphy.com/embed/l378ndHJn4bvW8wWQ" width="480" height="201" frameBorder="0" class="giphy-embed" allowFullScreen></iframe><p><a href="https://giphy.com/gifs/starwars-star-wars-chewbacca-l378ndHJn4bvW8wWQ"><h2>A long time ago in a galaxy far far away...</h2></a></p>
+          <iframe
+            src="https://giphy.com/embed/l378ndHJn4bvW8wWQ"
+            width="480"
+            height="201"
+            frameBorder="0"
+            class="giphy-embed"
+            allowFullScreen
+          ></iframe>
           <p>
-            Welcome to the JediVerse! The unofficial Star Wars catalogue! Through this website you can navigate through the different tabs above to see the people, species, planets, and all of the films that make up the Star Wars Universe! Learn more about the galaxy's most influential people, and the places they have been.
+            <a href="https://giphy.com/gifs/starwars-star-wars-chewbacca-l378ndHJn4bvW8wWQ">
+              <h2>A long time ago in a galaxy far far away...</h2>
+            </a>
+          </p>
+          <p>
+            Welcome to the JediVerse! The unofficial Star Wars catalogue! Through this website you can navigate through the different tabs above to see the people, species, planets, and all of the films that make up the Star Wars Universe! Learn more about the galaxy's most influential people, and the places they have been. Please feel free to look through all of the sections above and enjoy some of the classic movie posters below! And as always...May the force be with you!
           </p>
         </Message>
       </div>
