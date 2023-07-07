@@ -14,7 +14,6 @@ function App() {
   const [loading, setLoading] = useState(true); // keeps track of when we are fetching data to the API, indicate some loaders so that we are fetching data
   const [films, setFilms] = useState([]);
 
-  // using useEffect and asynchronous operations to make fetch calls to the different api links(also formats to json)
   useEffect(() => {
     async function fetchPeople() {
       const response = await fetch("https://swapi.dev/api/people/?format=json");
@@ -40,6 +39,7 @@ function App() {
     fetchPlanets();
     fetchFilms();
   }, []);
+
   console.log("data", people); // debugging making sure data for people populates
   console.log("planets", planets); // debugging making sure data for planets populates
 

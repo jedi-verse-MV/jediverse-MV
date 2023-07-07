@@ -17,7 +17,7 @@
       <button onClick={fetchNextPage}>Next Page</button>
     </div>
   );
-}
+
 
 const [currentPage, setCurrentPage] = useState(1); // Pagination, this will allow for moving to next page of characters and starts from page 1 
 
@@ -117,3 +117,5 @@ Background image addresses
 10. https://images8.alphacoders.com/100/1005773.jpg
 
 "https://i.pinimg.com/originals/fe/d0/7f/fed07f6053218eb7610abe9de87d620f.jpg"
+
+
