@@ -12,33 +12,42 @@ function App() {
   const [people, setPeople] = useState([]); // state for people
   const [planets, setPlanets] = useState([]); // state for planets
   const [loading, setLoading] = useState(true); // keeps track of when we are fetching data to the API, indicate some loaders so that we are fetching data
-  const [films, setFilms] = useState([]);
+  const [films, setFilms] = useState([]); // state for films (only on one page, no pagination needed)
+  // const [page, setPage] = useState(1); // makes sure that page is always on one (pagination)
 
+  const fetchPeople = async () => {
+    const response = await fetch("https://swapi.dev/api/people/?format=json");
+    const data = await response.json();
+    setPeople(data.results);
+    setLoading(false);
+  };
+
+  const fetchPlanets = async () => {
+    const response = await fetch("https://swapi.dev/api/planets/?format=json");
+    const data = await response.json();
+    setPlanets(data.results);
+    setLoading(false);
+  };
+
+  const fetchFilms = async () => {
+    const response = await fetch("https://swapi.dev/api/films/?format=json");
+    const data = await response.json();
+    setFilms(data.results);
+    setLoading(false);
+  };
   useEffect(() => {
-    async function fetchPeople() {
-      const response = await fetch("https://swapi.dev/api/people/?format=json");
-      const data = await response.json();
-      setPeople(data.results);
-      setLoading(false);
-    }
-
-    async function fetchPlanets() {
-      const response = await fetch("https://swapi.dev/api/planets/?format=json");
-      const data = await response.json();
-      setPlanets(data.results);
-      setLoading(false);
-    }
-
-    async function fetchFilms() {
-      const response = await fetch("https://swapi.dev/api/films/?format=json");
-      const data = await response.json();
-      setFilms(data.results);
-      setLoading(false);
-    }
     fetchPeople();
     fetchPlanets();
     fetchFilms();
-  }, []);
+  }, []); // add page prop to the empty array
+
+  // const handleNextPage = async () => { // pass as props to all components that need pagination
+  //   setPage((prevPage) => prevPage + 1);
+  // };
+
+  // const handlePreviousPage = async () => { // pass as props to all components that need pagination
+  //   setPage((page) => page - 1);
+  // };
 
   console.log("data", people); // debugging making sure data for people populates
   console.log("planets", planets); // debugging making sure data for planets populates

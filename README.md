@@ -6,6 +6,8 @@
 
 Welcome to the JediVerse, a complete encyclopedia of the people,planets, and films that make up the Star Wars franchise! Take a deep dive into the Star Wars universe and learn more about some of the franchise's most famous characters. This application was built using SWAPI(Star Wars API) and React, I used the various endpoints to pull specific information such as the people, planets, and etc. 
 
+*Hint: On the home page click on the movie poster cards and see where it takes you..may the force be with you!*
+
 ## Getting Started
 
 In order to view the JediVerse local, in the project directory, you can run:
@@ -15,7 +17,6 @@ In order to view the JediVerse local, in the project directory, you can run:
 Runs the app in the development mode.
 Open [http://localhost:3000](http://localhost:3000) to view it in your browser. The page will reload when you make changes. You may also see any lint errors in the console.
 
-*Also, one more thing...enjoy the music!*
 
 
 ## Resources

@@ -119,3 +119,34 @@ Background image addresses
 "https://i.pinimg.com/originals/fe/d0/7f/fed07f6053218eb7610abe9de87d620f.jpg"
 
 
+
+
+//Pagination 
+
+
+  const [characterData, setCharacterData] = useState([]); // state that manages character data
+  const [currentPage, setCurrentPage] = useState(1); // Pagination, this will allow for moving to next page of characters and starts from page 1 
+
+  const jediApi = `https://swapi.dev/api/people?page=${currentPage}`; // url for api, always set to current page
+
+  // set function for pulling all characters from the api
+  const fetchData = async () => {
+    try {
+      const response = await fetch(jediApi);
+      const data = await response.json();
+      setCharacterData(data.results);
+      console.log(data);
+    } catch (error) {
+      console.error("Error fetching data:", error);
+    }
+  };
+
+  // fetches all characters on initial mount and when currentPage changes
+  useEffect(() => {
+    fetchData();
+  }, [currentPage]);
+
+  // set function that handles fetching the next page (increments the currentPage state variable and triggers data fetching)
+  const fetchNextPage = async () => {
+    setCurrentPage((prevPage) => prevPage + 1);
+  };

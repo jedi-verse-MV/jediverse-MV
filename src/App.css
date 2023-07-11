@@ -20,6 +20,14 @@
   width: 1060px;
   
 }
+
+.hover-message {
+  font-size: larger;
+  font-weight: bolder;
+  color:#cc0000;
+
+}
+
 h1 {
   color: black;
   font-size:xx-large;
