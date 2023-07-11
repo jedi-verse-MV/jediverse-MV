@@ -83,7 +83,7 @@ function Home() {
               {/* The onMouseEnter and onMouseLeave handlers update the hoveredIndex state variable each time a user hovers over the poster card */}
                 <Card.Content>
                   {hoveredIndex === i && <div className="hover-message">Click me!</div>}
-                  {/* Conditional rendering added here, "Click Me!" message is only displayed when the hoveredIndex matches the current index of the poster card being rendered */}
+                  {/* Conditional rendering added here, "Click Me!" message is only displayed when the hoveredIndex matches the current index of the poster card being */}
 
                   <a href={poster.video}>    
                   {/* Links to each video for each image listed in array above, when the poster image card is clicked will then take to that specified link */}

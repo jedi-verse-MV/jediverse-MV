@@ -22,6 +22,8 @@ function Planets({ data }) {
                     <p>{planets.population}</p>
                     <label>Gravity</label>
                     <p>{planets.gravity}</p>
+                    <label>Orbital Period</label>
+                    <p>{planets.orbital_period}</p>
                   </Card.Description>
                 </Card.Content>
               </Card>

@@ -21,6 +21,8 @@ function Films({ data }) {
                     <p>{films.opening_crawl}</p>
                     <label>Director</label>
                     <p>{films.director}</p>
+                    <label>Producer</label>
+                    <p>{films.producer}</p>
                     <label>Release Date</label>
                     <p>{films.release_date}</p>
                   </Card.Description>
