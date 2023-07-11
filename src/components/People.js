@@ -12,7 +12,7 @@ function People({ data }) {
               <Grid.Column key={i} divided="true">
                 <Card>
                   <Card.Content>
-                    <Card.Header>{people.name}</Card.Header>
+                    <Card.Header><header>{people.name}</header></Card.Header>
                     <Card.Description>
                       <label>Height</label>
                       <p>{people.height}</p>
