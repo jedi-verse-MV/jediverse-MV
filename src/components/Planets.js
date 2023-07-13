@@ -1,11 +1,18 @@
 import React from "react";
-import { Card, Grid } from "semantic-ui-react";
+import { Card, Grid, Button } from "semantic-ui-react";
 
 
-function Planets({ data }) {
+function Planets({ data, next, previous, page }) {
   return (
     <>
       <h1 align="center"> Planets of Star Wars</h1>
+      <div className="people-button">
+      <Button color="purple" disabled={page === 1} onClick={previous}>
+        Previous
+      </Button>
+      <Button color="purple" onClick={next}>Next</Button>
+      </div>
+      <br></br>
       <Grid columns={3}>
         {data.map((planets, i) => {
           return (

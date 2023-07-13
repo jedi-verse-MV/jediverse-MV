@@ -1,3 +1,4 @@
+/* eslint-disable react-hooks/exhaustive-deps */
 import React, { useState, useEffect } from "react";
 import Navbar from "./components/Navbar";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
@@ -13,41 +14,42 @@ function App() {
   const [planets, setPlanets] = useState([]); // state for planets
   const [loading, setLoading] = useState(true); // keeps track of when we are fetching data to the API, indicate some loaders so that we are fetching data
   const [films, setFilms] = useState([]); // state for films (only on one page, no pagination needed)
-  // const [page, setPage] = useState(1); // makes sure that page is always on one (pagination)
+  const [page, setPage] = useState(1); // state for pagination makes sure that page is always on one
 
   const fetchPeople = async () => {
-    const response = await fetch("https://swapi.dev/api/people/?format=json");
+    const response = await fetch(`https://swapi.dev/api/people/?page=${page}&format=json`);
     const data = await response.json();
     setPeople(data.results);
     setLoading(false);
   };
 
   const fetchPlanets = async () => {
-    const response = await fetch("https://swapi.dev/api/planets/?format=json");
+    const response = await fetch(`https://swapi.dev/api/planets/?page=${page}&format=json`);
     const data = await response.json();
     setPlanets(data.results);
     setLoading(false);
   };
 
   const fetchFilms = async () => {
-    const response = await fetch("https://swapi.dev/api/films/?format=json");
+    const response = await fetch(`https://swapi.dev/api/films/?format=json`);
     const data = await response.json();
     setFilms(data.results);
     setLoading(false);
   };
+
   useEffect(() => {
     fetchPeople();
-    fetchPlanets();
+    fetchPlanets()
     fetchFilms();
-  }, []); // add page prop to the empty array
+  }, [page]); // add page prop to the empty array
 
-  // const handleNextPage = async () => { // pass as props to all components that need pagination
-  //   setPage((prevPage) => prevPage + 1);
-  // };
+  const handleNextPage = async () => {
+    setPage(page + 1);
+  };
 
-  // const handlePreviousPage = async () => { // pass as props to all components that need pagination
-  //   setPage((page) => page - 1);
-  // };
+  const handlePreviousPage = async () => {
+    setPage(page > 1 ? page - 1 : 1);
+  };
 
   console.log("data", people); // debugging making sure data for people populates
   console.log("planets", planets); // debugging making sure data for planets populates
@@ -67,8 +69,16 @@ function App() {
             ) : (
               <Routes>
                 <Route exact path="/" element={<Home />}></Route>
-                <Route exact path="/people" element={<People data={people} />}></Route>
-                <Route exact path="/planets" element={<Planets data={planets} />}></Route>
+                <Route
+                  exact
+                  path="/people"
+                  element={<People data={people} page={page} next={handleNextPage} previous={handlePreviousPage} />}
+                ></Route>
+                <Route
+                  exact
+                  path="/planets"
+                  element={<Planets data={planets} page={page} next={handleNextPage} previous={handlePreviousPage} />}
+                ></Route>
                 <Route eaxct path="/films" element={<Films data={films} />}></Route>
               </Routes>
             )}

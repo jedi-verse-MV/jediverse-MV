@@ -1,10 +1,17 @@
 import React from "react";
-import { Card, Grid } from "semantic-ui-react";
+import { Card, Grid, Button } from "semantic-ui-react";
 
-function People({ data }) {
+function People({ data, next, previous, page, dataLoader }) {
   return (
     <>
       <h1 align="center"> People of Star Wars</h1>
+      <div className="people-button">
+      <Button color="purple" disabled={page === 1} onClick={previous}>
+        Previous
+      </Button>
+      <Button color="purple" onClick={next}>Next</Button>
+      </div>
+      <br></br>
       <div>
         <Grid columns={3}>
           {data.map((people, i) => {
@@ -12,7 +19,9 @@ function People({ data }) {
               <Grid.Column key={i} divided="true">
                 <Card>
                   <Card.Content>
-                    <Card.Header><header>{people.name}</header></Card.Header>
+                    <Card.Header>
+                      <header>{people.name}</header>
+                    </Card.Header>
                     <Card.Description>
                       <label>Height</label>
                       <p>{people.height}</p>
