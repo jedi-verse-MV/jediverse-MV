@@ -9,14 +9,16 @@ import People from "./components/People";
 import Planets from "./components/Planets";
 import Films from "./components/Films";
 import Species from "./components/Species";
+import Starships from "./components/Starships";
 import "./App.css";
 
 function App() {
   const [people, setPeople] = useState([]); // state for people
   const [planets, setPlanets] = useState([]); // state for planets
   const [loading, setLoading] = useState(true); // keeps track of when we are fetching data to the API, indicate some loaders so that we are fetching data
-  const [films, setFilms] = useState([]); // state for films (only on one page, no pagination needed)
+  const [films, setFilms] = useState([]); // state for films
   const [species, setSpecies] = useState([]); // state for species 
+  const [starships, setStarships] = useState([])
   const [page, setPage] = useState(1); // state for pagination makes sure that page is always on one
 
   const fetchPeople = async () => {
@@ -47,12 +49,20 @@ function App() {
     setLoading(false);
    }
 
+   const fetchStarships = async () => {
+    const response = await fetch(`https://swapi.dev/api/starships/?page=${page}&format=json`)
+    const data  = await response.json()
+    setStarships(data.results)
+    setLoading(false);
+   }
+
 
   useEffect(() => {
     fetchPeople();
     fetchPlanets()
     fetchFilms();
     fetchSpecies();
+    fetchStarships();
   }, [page]); // add page prop to the empty array
 
   const handleNextPage = async () => {
@@ -66,6 +76,7 @@ function App() {
   console.log("data", people); // debugging making sure data for people populates
   console.log("planets", planets); // debugging making sure data for planets populates
   console.log("species", species); // debugging making sure data for species populates 
+  console.log("starships", starships); // debugging making sure data for species populates
 
   return (
     <>
@@ -94,6 +105,7 @@ function App() {
                 ></Route>
                 <Route exact path="/films" element={<Films data={films} />}></Route>
                 <Route exact path="/species" element={<Species data={species} page={page} next={handleNextPage} previous={handlePreviousPage} />}></Route>
+                <Route exact path="/starships" element={<Starships data={starships} page={page} next={handleNextPage} previous={handlePreviousPage} />}></Route>
               </Routes>
             )}
           </Container>

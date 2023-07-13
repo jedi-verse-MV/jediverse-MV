@@ -9,14 +9,14 @@ function Planets({ data, next, previous, page }) {
     <>
       <h1 align="center"> Planets of Star Wars</h1>
       <div className="people-button">
-        <Button color="purple" disabled={page === 1} onClick={previous}>
+        <Button compact color="purple" disabled={page === 1} onClick={previous}>
           Previous
         </Button>
-        <Button color="purple" disabled={isLastPage} onClick={next}>
+        <Button compact color="purple" disabled={isLastPage} onClick={next}>
           Next
         </Button>
       </div>
-      <br></br>
+      <br />
       <Grid columns={3}>
         {data.map((planets, i) => {
           return (

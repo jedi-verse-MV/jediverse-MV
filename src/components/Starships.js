@@ -1,13 +1,13 @@
 import React from "react";
 import { Card, Grid, Button } from "semantic-ui-react";
 
-function Species({ data, page, next, previous }) {
+function Starships({ data, page, next, previous }) {
   const totalPages = 4; //sets the total number of pages
   const isLastPage = page === totalPages; // checks to see if page is equal to totalpages
 
   return (
     <>
-      <h1 align="center"> Species of Star Wars</h1>
+      <h1 align="center"> Starships of Star Wars</h1>
       <div className="button">
         <Button compact color="purple" disabled={page === 1} onClick={previous}>
           Previous
@@ -19,27 +19,31 @@ function Species({ data, page, next, previous }) {
       <br />
       <div>
         <Grid columns={3}>
-          {data.map((species, i) => {
+          {data.map((starships, i) => {
             return (
               <Grid.Column key={i} divided="true">
                 <Card>
                   <Card.Content>
                     <Card.Header>
-                      <header>{species.name}</header>
+                      <header>{starships.name}</header>
                     </Card.Header>
                     <Card.Description>
-                      <label>Classification</label>
-                      <p>{species.classification}</p>
-                      <label>Designation</label>
-                      <p>{species.designation}</p>
-                      <label>Average Lifespan</label>
-                      <p>{species.average_lifespan}</p>
-                      <label>Homeworld</label>{" "}
+                      <label>Model</label>
+                      <p>{starships.model}</p>
+                      <label>Starship Class</label>
+                      <p>{starships.starship_class}</p>
+                      <label>Manufacturer</label>
+                      <p>{starships.manufacturer}</p>
+                      <label>Max Atmospheric Speed</label>
+                      <p>{starships.max_atmosphering_speed}</p>
+                      <label>Crew and Passengers</label>{" "}
                       <p>
-                        <a href={species.homeworld}>{species.homeworld}</a>
+                        Crew: {starships.crew}
+                        <br></br>
+                        Passengers: {starships.passengers}
                       </p>
-                      <label>Language</label>
-                      <p>{species.language}</p>
+                      <label>Hyperdrive Rating</label>
+                      <p>{starships.hyperdrive_rating}</p>
                     </Card.Description>
                   </Card.Content>
                 </Card>
@@ -52,4 +56,4 @@ function Species({ data, page, next, previous }) {
   );
 }
 
-export default Species;
+export default Starships;
