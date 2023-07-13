@@ -19,6 +19,9 @@ function Navbar() {
           <Link to="/films">
             <Menu.Item name="films" />
           </Link>
+          <Link to="/species">
+            <Menu.Item name="species" />
+          </Link>
         </Menu>
       </Container>
     </div>
