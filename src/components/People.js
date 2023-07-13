@@ -2,14 +2,18 @@ import React from "react";
 import { Card, Grid, Button } from "semantic-ui-react";
 
 function People({ data, next, previous, page, dataLoader }) {
+  const totalPages = 9; // total pages for people
+  const isLastPage = page === totalPages; // checks to see if this is the last page
   return (
     <>
       <h1 align="center"> People of Star Wars</h1>
       <div className="people-button">
-      <Button color="purple" disabled={page === 1} onClick={previous}>
-        Previous
-      </Button>
-      <Button color="purple" onClick={next}>Next</Button>
+        <Button color="purple" disabled={page === 1} onClick={previous}>
+          Previous
+        </Button>
+        <Button color="purple" disabled={isLastPage} onClick={next}>
+          Next
+        </Button>
       </div>
       <br></br>
       <div>
