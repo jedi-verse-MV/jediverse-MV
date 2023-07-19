@@ -17,8 +17,8 @@ function App() {
   const [planets, setPlanets] = useState([]); // state for planets
   const [loading, setLoading] = useState(true); // keeps track of when we are fetching data to the API, indicate some loaders so that we are fetching data
   const [films, setFilms] = useState([]); // state for films
-  const [species, setSpecies] = useState([]); // state for species 
-  const [starships, setStarships] = useState([])
+  const [species, setSpecies] = useState([]); // state for species
+  const [starships, setStarships] = useState([]); //state for starships
   const [page, setPage] = useState(1); // state for pagination makes sure that page is always on one
 
   const fetchPeople = async () => {
@@ -43,23 +43,27 @@ function App() {
   };
 
   const fetchSpecies = async () => {
-    const response = await fetch(`https://swapi.dev/api/species/?page=${page}&format=json`)
-    const data  = await response.json()
-    setSpecies(data.results)
+    const response = await fetch(`https://swapi.dev/api/species/?page=${page}&format=json`);
+    const data = await response.json();
+    setSpecies(data.results);
     setLoading(false);
-   }
+  };
 
-   const fetchStarships = async () => {
-    const response = await fetch(`https://swapi.dev/api/starships/?page=${page}&format=json`)
-    const data  = await response.json()
-    setStarships(data.results)
+  const fetchStarships = async () => {
+    const response = await fetch(`https://swapi.dev/api/starships/?page=${page}&format=json`);
+    const data = await response.json();
+    setStarships(data.results);
     setLoading(false);
-   }
+  };
 
+  const fetchVehicles = async () => {
+    const response = await fetch(`https://swapi.dev/api/vehicles/?pages=${page}&format=json`);
+    const data = await response.json();
+  };
 
   useEffect(() => {
     fetchPeople();
-    fetchPlanets()
+    fetchPlanets();
     fetchFilms();
     fetchSpecies();
     fetchStarships();
@@ -75,7 +79,7 @@ function App() {
 
   console.log("data", people); // debugging making sure data for people populates
   console.log("planets", planets); // debugging making sure data for planets populates
-  console.log("species", species); // debugging making sure data for species populates 
+  console.log("species", species); // debugging making sure data for species populates
   console.log("starships", starships); // debugging making sure data for species populates
 
   return (
@@ -104,8 +108,18 @@ function App() {
                   element={<Planets data={planets} page={page} next={handleNextPage} previous={handlePreviousPage} />}
                 ></Route>
                 <Route exact path="/films" element={<Films data={films} />}></Route>
-                <Route exact path="/species" element={<Species data={species} page={page} next={handleNextPage} previous={handlePreviousPage} />}></Route>
-                <Route exact path="/starships" element={<Starships data={starships} page={page} next={handleNextPage} previous={handlePreviousPage} />}></Route>
+                <Route
+                  exact
+                  path="/species"
+                  element={<Species data={species} page={page} next={handleNextPage} previous={handlePreviousPage} />}
+                ></Route>
+                <Route
+                  exact
+                  path="/starships"
+                  element={
+                    <Starships data={starships} page={page} next={handleNextPage} previous={handlePreviousPage} />
+                  }
+                ></Route>
               </Routes>
             )}
           </Container>
