@@ -34,7 +34,7 @@ function Species({ data, page, next, previous }) {
                       <p>{species.designation}</p>
                       <label>Average Lifespan</label>
                       <p>{species.average_lifespan}</p>
-                      <label>Homeworld</label>{" "}
+                      <label>Homeworld</label>{""}
                       <p>
                         <a href={species.homeworld}>{species.homeworld}</a>
                       </p>
