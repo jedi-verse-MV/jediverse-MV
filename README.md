@@ -4,13 +4,15 @@
 <img  width=300 src="images/hellothere.gif" alt="animated"/>
 </p>
 
-Welcome to the JediVerse, a complete encyclopedia of the people,planets, and films that make up the Star Wars franchise! Take a deep dive into the Star Wars universe and learn more about some of the franchise's most famous characters. This application was built using SWAPI(Star Wars API) and React, I used the various endpoints to pull specific information such as the people, planets, and etc. 
+Welcome to the JediVerse, a complete encyclopedia of the people,planets, films, species, and starships that make up the Star Wars franchise! Take a deep dive into the Star Wars universe and learn more about some of the franchise's most famous characters. This application was built using the SWAPI(Star Wars API) and React, I used the various endpoints to pull specific information such as the people, planets, and etc. All styling in the app was done using Semantic React UI and CSS. 
+
+When looking through each tab you will see that some tabs have been paginated, please feel free to scroll through each tab and learn more about the people, planets, species, and starships of Star Wars! 
 
 *Hint: On the home page click on the movie poster cards and see where it takes you..may the force be with you!*
 
 ## Getting Started
 
-In order to view the JediVerse local, in the project directory, you can run:
+In order to view the JediVerse locally, first you would need to clone the repository using <code> git clone [repo link here]</code>, in the project directory, then you can run:
 
 ### `npm start`
 
@@ -29,3 +31,4 @@ Open [http://localhost:3000](http://localhost:3000) to view it in your browser. 
 - [GIFs](https://www.giphy.com)
 - [React Docs](https://react.dev/blog/2023/03/16/introducing-react-dev)
 - [SWAPI Tutorial](https://www.youtube.com/watch?v=EC5ZvP87P2k&list=PLF-dx8Nf2yS3SpHAv3E8wXWy1tt0D3qsC&index=50)
+- [Render](https://render.com/)
