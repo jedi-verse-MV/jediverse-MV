@@ -56,11 +56,6 @@ function App() {
     setLoading(false);
   };
 
-  const fetchVehicles = async () => {
-    const response = await fetch(`https://swapi.dev/api/vehicles/?pages=${page}&format=json`);
-    const data = await response.json();
-  };
-
   useEffect(() => {
     fetchPeople();
     fetchPlanets();
