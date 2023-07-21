@@ -1,5 +1,4 @@
 /* eslint-disable react-hooks/exhaustive-deps */
-
 import React, { useState, useEffect } from "react";
 import Navbar from "./components/Navbar";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
@@ -62,7 +61,7 @@ function App() {
     fetchFilms();
     fetchSpecies();
     fetchStarships();
-  }, [page]); // add page prop to the empty array
+  }, [page]); // add page prop to the empty array so that page is fetched and rendered
 
   const handleNextPage = async () => {
     setPage(page + 1);
@@ -72,11 +71,6 @@ function App() {
     setPage(page > 1 ? page - 1 : 1);
   };
 
-  console.log("data", people); // debugging making sure data for people populates
-  console.log("planets", planets); // debugging making sure data for planets populates
-  console.log("species", species); // debugging making sure data for species populates
-  console.log("starships", starships); // debugging making sure data for species populates
-
   return (
     <>
       <div className="App">
@@ -85,8 +79,6 @@ function App() {
           <Container>
             {loading ? (
               <Dimmer active inverted>
-                {/* If loading is true meaning that we have not fetched the data then we want to indicate that the data is showing by saying "Loading"  */}
-                {/* If loading is not true, meaning if the data has already been fetched then we will just display the route components */}
                 <Loader inverted>Loading...</Loader>
               </Dimmer>
             ) : (
