@@ -12,12 +12,11 @@ When looking through each tab you will see that some tabs have been paginated, p
 
 ## Getting Started
 
-In order to view the JediVerse locally, first you would need to clone the repository using <code> git clone [repo link here]</code>, in the project directory, then you can run:
+In order to view the JediVerse locally, first clone the repository using <code> git clone [repo link here]</code>. You can get the repo link just buy copying the web address in the browser window. In the project directory, using the CLI, you can then run:
 
 ### `npm start`
 
-Runs the app in the development mode.
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser. The page will reload when you make changes. You may also see any lint errors in the console.
+This command runs the app in the development mode. Open [http://localhost:3000](http://localhost:3000) to view it in your browser. The page will reload when you make changes. You may also see any lint errors in the console. 
 
 
 
