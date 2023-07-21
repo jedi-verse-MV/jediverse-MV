@@ -10,6 +10,10 @@ When looking through each tab you will see that some tabs have been paginated, p
 
 *Hint: On the home page click on the movie poster cards and see where it takes you..may the force be with you!*
 
+You can also view the deployed version of this application here:
+
+[JediVerse](https://jediverse.onrender.com/)
+
 ## Getting Started
 
 In order to view the JediVerse locally, first clone the repository using <code> git clone [repo link here]</code>. You can get the repo link just buy copying the web address in the browser window. In the project directory, using the CLI, you can then run:
