@@ -1,7 +1,7 @@
 <h1 align="center"><i>A long time ago in a galaxy far far away... </h1></i>
 
 <p align="center" >
-<img  width=300 src="images/hellothere.gif" alt="animated"/>
+<img  width=300 src="images/porg.gif" alt="animated"/>
 </p>
 
 Welcome to the JediVerse, a complete encyclopedia of the people,planets, films, species, and starships that make up the Star Wars franchise! Take a deep dive into the Star Wars universe and learn more about some of the franchise's most famous characters. This application was built using the SWAPI(Star Wars API) and React, I used the various endpoints to pull specific information such as the people, planets, and etc. All styling in the app was done using Semantic React UI and CSS. 
