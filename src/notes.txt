@@ -1,0 +1,16 @@
+
+* explains how dimmer works on app.js*
+
+{/* If loading is true meaning that we have not fetched the data then we want to indicate that the data is showing by saying "Loading"  */}
+{/* If loading is not true, meaning if the data has already been fetched then we will just display the route components */}
+
+*explains how on hover works on home component*
+
+  {/* The onMouseEnter and onMouseLeave handlers update the hoveredIndex state variable each time a user hovers over the poster card */}
+
+  {/* Conditional rendering added here, "Click Me!" message is only displayed when the hoveredIndex matches the current index of the poster card being */}
+
+  {/* Links to each video for each image listed in array above, when the poster image card is clicked will then take to that specified link */}
+
+
+
