@@ -2,7 +2,7 @@ import React from "react";
 import { Card, Grid, Button } from "semantic-ui-react";
 
 function Species({ data, page, next, previous }) {
-  const totalPages = 4; //sets the total number of pages
+  const totalPages = 4; // sets the total number of pages
   const isLastPage = page === totalPages; // checks to see if page is equal to totalpages
 
   return (
