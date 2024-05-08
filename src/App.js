@@ -18,17 +18,23 @@ function App() {
   const [films, setFilms] = useState([]); // state for films
   const [species, setSpecies] = useState([]); // state for species
   const [starships, setStarships] = useState([]); //state for starships
-  const [page, setPage] = useState(1); // state for pagination makes sure that page is always on one
+
+
+  //Separate page for each endpoint, state for pagination for each endpoint
+  const [peoplePage, setPeoplePage] = useState(1);
+  const [planetsPage, setPlanetsPage] = useState(1);
+  const [speciesPage, setSpeciesPage] = useState(1);
+  const [starshipsPage, setStarshipsPage] = useState(1);
 
   const fetchPeople = async () => {
-    const response = await fetch(`https://swapi.dev/api/people/?page=${page}&format=json`);
+    const response = await fetch(`https://swapi.dev/api/people/?page=${peoplePage}&format=json`);
     const data = await response.json();
     setPeople(data.results);
     setLoading(false);
   };
 
   const fetchPlanets = async () => {
-    const response = await fetch(`https://swapi.dev/api/planets/?page=${page}&format=json`);
+    const response = await fetch(`https://swapi.dev/api/planets/?page=${planetsPage}&format=json`);
     const data = await response.json();
     setPlanets(data.results);
     setLoading(false);
@@ -42,33 +48,66 @@ function App() {
   };
 
   const fetchSpecies = async () => {
-    const response = await fetch(`https://swapi.dev/api/species/?page=${page}&format=json`);
+    const response = await fetch(`https://swapi.dev/api/species/?page=${speciesPage}&format=json`);
     const data = await response.json();
     setSpecies(data.results);
     setLoading(false);
   };
 
   const fetchStarships = async () => {
-    const response = await fetch(`https://swapi.dev/api/starships/?page=${page}&format=json`);
+    const response = await fetch(`https://swapi.dev/api/starships/?page=${starshipsPage}&format=json`);
     const data = await response.json();
     setStarships(data.results);
     setLoading(false);
   };
 
+  // useEffect for each endpoint to pull up the respective pages
+  // add page prop to the empty array so that page for each endpoint is fetched and rendered
   useEffect(() => {
     fetchPeople();
-    fetchPlanets();
-    fetchFilms();
-    fetchSpecies();
-    fetchStarships();
-  }, [page]); // add page prop to the empty array so that page is fetched and rendered
+  }, [peoplePage]);
 
-  const handleNextPage = async () => {
-    setPage(page + 1);
+  useEffect(() => {
+    fetchPlanets();
+  }, [planetsPage]);
+
+  useEffect(() => {
+    fetchSpecies();
+  }, [speciesPage]);
+
+  useEffect(() => {
+    fetchStarships();
+  }, [starshipsPage]);
+
+// separate useEffect for films
+  useEffect(() => {
+    fetchFilms();
+  }, []);
+
+  // handles the next button for each endpoint
+  const handleNextPage = (category) => {
+    if (category === "people") {
+      setPeoplePage(peoplePage + 1);
+    } else if (category === "planets") {
+      setPlanetsPage(planetsPage + 1);
+    } else if (category === "species") {
+      setSpeciesPage(speciesPage + 1);
+    } else if (category === "starships") {
+      setStarshipsPage(starshipsPage + 1);
+    }
   };
 
-  const handlePreviousPage = async () => {
-    setPage(page > 1 ? page - 1 : 1);
+  //handles the previous button for each endpoint
+  const handlePreviousPage = (category) => {
+    if (category === "people") {
+      setPeoplePage(peoplePage > 1 ? peoplePage - 1 : 1);
+    } else if (category === "planets") {
+      setPlanetsPage(planetsPage > 1 ? planetsPage - 1 : 1);
+    } else if (category === "species") {
+      setSpeciesPage(speciesPage > 1 ? speciesPage - 1 : 1);
+    } else if (category === "starships") {
+      setStarshipsPage(starshipsPage > 1 ? starshipsPage - 1 : 1);
+    }
   };
 
   return (
@@ -87,24 +126,50 @@ function App() {
                 <Route
                   exact
                   path="/people"
-                  element={<People data={people} page={page} next={handleNextPage} previous={handlePreviousPage} />}
+                  element={
+                    <People
+                      data={people}
+                      page={peoplePage}
+                      next={() => handleNextPage("people")}
+                      previous={() => handlePreviousPage("people")}
+                    />
+                  }
                 ></Route>
                 <Route
                   exact
                   path="/planets"
-                  element={<Planets data={planets} page={page} next={handleNextPage} previous={handlePreviousPage} />}
+                  element={
+                    <Planets
+                      data={planets}
+                      page={planetsPage}
+                      next={() => handleNextPage("planets")}
+                      previous={() => handlePreviousPage("planets")}
+                    />
+                  }
                 ></Route>
                 <Route exact path="/films" element={<Films data={films} />}></Route>
                 <Route
                   exact
                   path="/species"
-                  element={<Species data={species} page={page} next={handleNextPage} previous={handlePreviousPage} />}
+                  element={
+                    <Species
+                      data={species}
+                      page={speciesPage}
+                      next={() => handleNextPage("species")}
+                      previous={() => handlePreviousPage("species")}
+                    />
+                  }
                 ></Route>
                 <Route
                   exact
                   path="/starships"
                   element={
-                    <Starships data={starships} page={page} next={handleNextPage} previous={handlePreviousPage} />
+                    <Starships
+                      data={starships}
+                      page={starshipsPage}
+                      next={() => handleNextPage("starships")}
+                      previous={() => handlePreviousPage("starships")}
+                    />
                   }
                 ></Route>
               </Routes>
