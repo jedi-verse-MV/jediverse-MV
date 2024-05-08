@@ -1,10 +1,10 @@
 .App {
-  text-align: center; 
-  background-image: url("https://images8.alphacoders.com/100/1005773.jpg");
+  text-align: center;
+  background-image: url("https://images8.alphacoders.com/132/thumb-1920-1329214.jpeg");
   background-position: cover;
   background-repeat: no-repeat;
-  background-attachment:fixed;
-  background-size: cover; 
+  background-attachment: fixed;
+  background-size: cover;
 }
 
 .App-logo {
@@ -14,40 +14,37 @@
 
 .poster {
   height: 400px;
-
 }
 .message {
   width: 1060px;
-  
 }
 
 .hover-message {
   font-size: larger;
   font-weight: bolder;
-  color:#cc0000;
-
+  color: #f07f21;
 }
 .button {
   align-content: center;
 }
+
+
 h1 {
-  color: black;
-  font-size:xx-large;
+  color: #474b56;
+  font-size: xx-large;
   font-weight: bolder;
-  
 }
 
 h2 {
-  color:#cc0000;
+  color: #f07f21;
   font-family: Arial, Helvetica, sans-serif;
-
 }
 
-p { 
-  color: #cc9f14; 
+p {
+  color: #474b56;
   font-size: medium;
   font-weight: bold;
-  font-display:inherit;
+  font-display: inherit;
 }
 
 label {
@@ -58,10 +55,8 @@ label {
 }
 
 header {
-  color:#cc0000;
-  
+  color: #f07f21;
 }
-
 
 @media (prefers-reduced-motion: no-preference) {
   .App-logo {

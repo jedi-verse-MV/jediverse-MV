@@ -9,10 +9,10 @@ function Starships({ data, page, next, previous }) {
     <>
       <h1 align="center"> Starships of Star Wars</h1>
       <div className="button">
-        <Button compact color="purple" disabled={page === 1} onClick={previous}>
+        <Button compact color="teal" disabled={page === 1} onClick={previous}>
           Previous
         </Button>
-        <Button compact color="purple" disabled={isLastPage} onClick={next}>
+        <Button compact color="teal" disabled={isLastPage} onClick={next}>
           Next
         </Button>
       </div>
