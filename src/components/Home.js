@@ -39,7 +39,7 @@ function Home() {
       video: "https://youtube.com/watch?v=amgojdMJP6o",
     },
     {
-      image: "https://i.ebayimg.com/images/g/Mb8AAOSwVCVkEr~M/s-l1600.jpg",
+      image: "https://m.media-amazon.com/images/I/81SZrTCTb-L._AC_SL1500_.jpg",
       video: "https://www.youtube.com/watch?v=B87Hh5tN5E0&list=OLAK5uy_lRxZeiLCrKgNgef8hdenLy0kMk4x_i3So&index=7",
     },
   ];
