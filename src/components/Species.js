@@ -1,5 +1,6 @@
 import React from "react";
 import { Card, Grid, Button } from "semantic-ui-react";
+import HomeworldName from "./HomeworldName";
 
 function Species({ data, page, next, previous }) {
   const totalPages = 4; // sets the total number of pages
@@ -36,7 +37,7 @@ function Species({ data, page, next, previous }) {
                       <p>{species.average_lifespan}</p>
                       <label>Homeworld</label>{""}
                       <p>
-                        <a href={species.homeworld}>{species.homeworld}</a>
+                         <HomeworldName homeworldUrl={species.homeworld} />
                       </p>
                       <label>Language</label>
                       <p>{species.language}</p>
