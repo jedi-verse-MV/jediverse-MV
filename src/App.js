@@ -19,7 +19,6 @@ function App() {
   const [species, setSpecies] = useState([]); // state for species
   const [starships, setStarships] = useState([]); //state for starships
 
-
   //Separate page for each endpoint, state for pagination for each endpoint
   const [peoplePage, setPeoplePage] = useState(1);
   const [planetsPage, setPlanetsPage] = useState(1);
@@ -27,38 +26,78 @@ function App() {
   const [starshipsPage, setStarshipsPage] = useState(1);
 
   const fetchPeople = async () => {
-    const response = await fetch(`https://swapi.dev/api/people/?page=${peoplePage}&format=json`);
-    const data = await response.json();
-    setPeople(data.results);
-    setLoading(false);
+    try {
+      const response = await fetch(`https://swapi.py4e.com/api/people/?page=${peoplePage}`);
+      if (!response.ok) {
+        throw new Error(`HTTP error! status: ${response.status}`);
+      }
+      const data = await response.json();
+      setPeople(data.results);
+      setLoading(false);
+    } catch (error) {
+      console.error("Error fetching people:", error);
+      setLoading(false);
+    }
   };
 
   const fetchPlanets = async () => {
-    const response = await fetch(`https://swapi.dev/api/planets/?page=${planetsPage}&format=json`);
-    const data = await response.json();
-    setPlanets(data.results);
-    setLoading(false);
+    try {
+      const response = await fetch(`https://swapi.py4e.com/api/planets/?page=${planetsPage}`);
+      if (!response.ok) {
+        throw new Error(`HTTP error! status: ${response.status}`);
+      }
+      const data = await response.json();
+      setPlanets(data.results);
+      setLoading(false);
+    } catch (error) {
+      console.error("Error fetching planets:", error);
+      setLoading(false);
+    }
   };
 
   const fetchFilms = async () => {
-    const response = await fetch(`https://swapi.dev/api/films/?format=json`);
-    const data = await response.json();
-    setFilms(data.results);
-    setLoading(false);
+    try {
+      const response = await fetch(`https://swapi.py4e.com/api/films/`);
+      if (!response.ok) {
+        throw new Error(`HTTP error! status: ${response.status}`);
+      }
+      const data = await response.json();
+      setFilms(data.results);
+      setLoading(false);
+    } catch (error) {
+      console.error("Error fetching films:", error);
+      setLoading(false);
+    }
   };
 
   const fetchSpecies = async () => {
-    const response = await fetch(`https://swapi.dev/api/species/?page=${speciesPage}&format=json`);
-    const data = await response.json();
-    setSpecies(data.results);
-    setLoading(false);
+    try {
+      const response = await fetch(`https://swapi.py4e.com/api/species/?page=${speciesPage}`);
+      if (!response.ok) {
+        throw new Error(`HTTP error! status: ${response.status}`);
+      }
+      const data = await response.json();
+      setSpecies(data.results);
+      setLoading(false);
+    } catch (error) {
+      console.error("Error fetching species:", error);
+      setLoading(false);
+    }
   };
 
   const fetchStarships = async () => {
-    const response = await fetch(`https://swapi.dev/api/starships/?page=${starshipsPage}&format=json`);
-    const data = await response.json();
-    setStarships(data.results);
-    setLoading(false);
+    try {
+      const response = await fetch(`https://swapi.py4e.com/api/starships/?page=${starshipsPage}`);
+      if (!response.ok) {
+        throw new Error(`HTTP error! status: ${response.status}`);
+      }
+      const data = await response.json();
+      setStarships(data.results);
+      setLoading(false);
+    } catch (error) {
+      console.error("Error fetching starships:", error);
+      setLoading(false);
+    }
   };
 
   // useEffect for each endpoint to pull up the respective pages
@@ -79,7 +118,7 @@ function App() {
     fetchStarships();
   }, [starshipsPage]);
 
-// separate useEffect for films
+  // separate useEffect for films
   useEffect(() => {
     fetchFilms();
   }, []);
