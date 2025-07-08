@@ -1,5 +1,6 @@
 import React from "react";
 import { Card, Grid, Button } from "semantic-ui-react";
+import HomeworldName from "./HomeworldName";
 
 function People({ data, next, previous, page }) {
   const totalPages = 9; // total pages for people
@@ -33,9 +34,9 @@ function People({ data, next, previous, page }) {
                       <p>{people.birth_year}</p>
                       <label>Gender</label>
                       <p>{people.gender}</p>
-                      <label>Homeworld</label>{" "}
+                      <label>Homeworld</label>
                       <p>
-                        <a href={people.homeworld}>{people.homeworld}</a>
+                        <HomeworldName homeworldUrl={people.homeworld} />
                       </p>
                       <label>Hair Color</label>
                       <p>{people.hair_color}</p>
