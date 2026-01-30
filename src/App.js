@@ -9,6 +9,7 @@ import Planets from "./components/Planets";
 import Films from "./components/Films";
 import Species from "./components/Species";
 import Starships from "./components/Starships";
+import Vehicles from "./components/Vehicles";
 import "./App.css";
 
 function App() {
@@ -18,12 +19,14 @@ function App() {
   const [films, setFilms] = useState([]); // state for films
   const [species, setSpecies] = useState([]); // state for species
   const [starships, setStarships] = useState([]); //state for starships
+  const [vehicles, setVehicles] = useState([]); // state for vehicles
 
   //Separate page for each endpoint, state for pagination for each endpoint
   const [peoplePage, setPeoplePage] = useState(1);
   const [planetsPage, setPlanetsPage] = useState(1);
   const [speciesPage, setSpeciesPage] = useState(1);
   const [starshipsPage, setStarshipsPage] = useState(1);
+  const [vehiclesPage, setVehiclesPage] = useState(1);
 
   const fetchPeople = async () => {
     try {
@@ -100,6 +103,21 @@ function App() {
     }
   };
 
+  const fetchVehicles = async () => {
+    try {
+      const response = await fetch(`https://swapi.py4e.com/api/vehicles/?page=${vehiclesPage}`);
+      if (!response.ok) {
+        throw new Error(`HTTP error! status: ${response.status}`);
+      }
+      const data = await response.json();
+      setVehicles(data.results);
+      setLoading(false);
+    } catch (error) {
+      console.error("Error fetching vehicles:", error);
+      setLoading(false);
+    }
+  };
+
   // useEffect for each endpoint to pull up the respective pages
   // add page prop to the empty array so that page for each endpoint is fetched and rendered
   useEffect(() => {
@@ -118,6 +136,10 @@ function App() {
     fetchStarships();
   }, [starshipsPage]);
 
+  useEffect(() => {
+    fetchVehicles();
+  }, [vehiclesPage]);
+
   // separate useEffect for films
   useEffect(() => {
     fetchFilms();
@@ -133,6 +155,8 @@ function App() {
       setSpeciesPage(speciesPage + 1);
     } else if (category === "starships") {
       setStarshipsPage(starshipsPage + 1);
+    } else if (category === "vehicles") {
+      setVehiclesPage(vehiclesPage + 1);
     }
   };
 
@@ -146,6 +170,8 @@ function App() {
       setSpeciesPage(speciesPage > 1 ? speciesPage - 1 : 1);
     } else if (category === "starships") {
       setStarshipsPage(starshipsPage > 1 ? starshipsPage - 1 : 1);
+    } else if (category === "vehicles") {
+      setVehiclesPage(vehiclesPage > 1 ? vehiclesPage - 1 : 1);
     }
   };
 
@@ -208,6 +234,18 @@ function App() {
                       page={starshipsPage}
                       next={() => handleNextPage("starships")}
                       previous={() => handlePreviousPage("starships")}
+                    />
+                  }
+                ></Route>
+                <Route
+                  exact
+                  path="/vehicles"
+                  element={
+                    <Vehicles
+                      data={vehicles}
+                      page={vehiclesPage}
+                      next={() => handleNextPage("vehicles")}
+                      previous={() => handlePreviousPage("vehicles")}
                     />
                   }
                 ></Route>
