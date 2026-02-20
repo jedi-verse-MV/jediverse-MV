@@ -67,11 +67,13 @@ function Home() {
           <br></br>
           <p>
             Welcome to the JediVerse! The unofficial Star Wars catalogue! Through this website you can navigate through
-            the different tabs above to see the people, species, planets, and all of the films that make up the Star
-            Wars Universe! Learn more about the galaxy's most influential people, and the places they have been. Please
-            feel free to look through all of the sections above and enjoy some of the classic movie posters below! And
-            as always...May the force be with you!
+            the different tabs above to see the people, species, planets, starships, vehicles, and all of the films that
+            make up the Star Wars Universe! Learn more about the galaxy's most influential people, and the places they
+            have been. Please feel free to look through all of the sections above and enjoy some of the classic movie
+            posters below! And as always...May the force be with you!
           </p>
+          <br></br>
+          <p>Click on any of the movie posters below for a surprise!</p>
         </Message>
       </div>
       <br></br>
